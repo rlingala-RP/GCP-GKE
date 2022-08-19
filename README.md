@@ -26,6 +26,7 @@ On your local machine make sure below components are present:
 10.	``` helm install sri-ing ingress-nginx/ingress-nginx --namespace ingress --version 4.0.17 --values nginx-val.yaml --create-namespace ``` -> this will install nginx ingress controller in GKE
 11.	``` helm install whereami whereami ``` -> this will install whereami chart (our application)
 12.	``` cd cert-manager ```
-13.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ```
-14.	``` kubectl apply -f cert-issuer-ingress.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt
-15.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
+13.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ``` -> install certmanager
+14. ``` kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.crds.yaml ``` -> install crds for certissuer
+15.	``` kubectl apply -f cert-issuer-ingress.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
+16.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
