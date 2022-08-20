@@ -28,6 +28,5 @@ On your local machine make sure below components are present:
 12.	``` cd cert-manager ```
 13. ``` kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.crds.yaml ``` -> CDRs installation for cert-manager
 13.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ``` -> install certmanager
-14. ``` kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.crds.yaml ``` -> install crds for certissuer
-15.	``` kubectl apply -f cert-issuer-ingress.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
-16.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
+14.	``` kubectl apply -f cert-issuer-ingress.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
+15.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
