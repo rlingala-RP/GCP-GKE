@@ -6,7 +6,7 @@ metadata:
 spec:
   dnsNames:
     - sri.whereaminow.uk
-  secretName: wherami-tls
+  secretName: whereami-tls
   issuerRef:
-    name: letsencrypt-cluster-issuer
+    name: letsencrypt-prod
     kind: ClusterIssuer
