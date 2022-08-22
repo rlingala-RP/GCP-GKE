@@ -13,13 +13,13 @@ On your local machine make sure below components are present:
 
 ### Setup Infrastructure and Install whereami application
 
-1.	Go to GCP and create you project and have your project id key
+1.	Go to GCP and create a project and have that project id key
  
 2.	Create a bucket in the storage service of GCP to have the terraform state synced and get the bucket name
 
 3.	Clone code repo from https://github.com/rlingala-RP/GCP-GKE.git
 4.	``` cd terraform ```
-5.	In the variables.tf file change the bucket name and project id that you have created
+5.	In the variables.tf file replace the project id with your project id and in the provider.tf file replace the bucket name with the one you created
 6.	``` terraform plan ``` -> you can see in the output what resource are going to be created
 7.	``` terraform apply -auto-approve ``` -> this will create the infrastructure on GCP
 8.	``` cd ../k8s ```
