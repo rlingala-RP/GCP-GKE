@@ -11,7 +11,7 @@ On your local machine make sure below components are present:
 6.	Kubectl
 7. Go
 
-### Installation/Setup :
+### Setup Infrastructure Install whereami application
 
 1.	Go to GCP and create you project and have your project id key
  
