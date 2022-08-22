@@ -9,6 +9,7 @@ On your local machine make sure below components are present:
 4.	Google-cloud-sdk (to connect to GKE from local)
 5.	Helm
 6.	Kubectl
+7. Go
 
 ### Installation/Setup :
 
@@ -30,3 +31,10 @@ On your local machine make sure below components are present:
 13.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ``` -> install certmanager
 14.	``` kubectl apply -f cert-issuer-ingress.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
 15.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
+
+### Testing Ifrastructure
+
+1. Inside the repository go to test folder
+2. ``` cd test ```
+3. ``` go test -v ``` -> this will run the unit test for the infrastructure
+
