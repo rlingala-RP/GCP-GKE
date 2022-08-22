@@ -44,7 +44,7 @@ ingress:
   enabled: true
   className: "external-nginx"
   annotations: 
-     #kubernetes.io/ingress.class: "gce"
+     #kubernetes.io/ingress.class: ""
      kubernetes.io/ingress.allow-http: "true"
      cert-manager.io/cluster-issuer: "letsencrypt-production"
   hosts:
