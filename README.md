@@ -37,5 +37,5 @@ On your local machine make sure below components are present:
 
 1. Inside the repository go to test folder
 2. ``` cd test ```
-3. ``` go test -v ``` -> this will run the unit test for the infrastructure
+3. ``` go test -v -timeout 20m ``` -> this will run the unit test for the infrastructure
 
