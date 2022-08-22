@@ -32,7 +32,7 @@ On your local machine make sure below components are present:
 14.	``` kubectl apply -f cert-issuer-ingress.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
 15.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
 
-### Testing Ifrastructure
+### Testing Infrastructure
 
 1. Inside the repository go to test folder
 2. ``` cd test ```
