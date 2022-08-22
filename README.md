@@ -32,6 +32,8 @@ On your local machine make sure below components are present:
 15.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ``` -> install certmanager
 16.	``` kubectl apply -f cluster-issuer.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
 17.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
+18. ``` kubectl get ingress ``` -> you will see an ip in this output, make sure that ip is setup as A record for the domain(sri.whereaminow.uk).
+19. After few minutes go to browser and visit https://sri.whereaminow.uk/ -> you should now see the application running.
 
 ### Testing Infrastructure
 
