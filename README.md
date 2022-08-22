@@ -24,7 +24,7 @@ On your local machine make sure below components are present:
 7.	``` terraform plan ``` -> you can see in the output what resource are going to be created
 8.	``` terraform apply -auto-approve ``` -> this will create the infrastructure on GCP
 9.	``` cd ../k8s ```
-10.	``` gcloud container clusters get-credentials dev --region europe-west2-b ``` -> this will help you connect to the GKE cluster that is just created
+10.	``` gcloud container clusters get-credentials dev-kube --zone europe-west2-b --project gcp-gke-dev-360209``` -> this will help you connect to the GKE cluster that is just created
 11.	``` helm install sri-ing ingress-nginx/ingress-nginx --namespace ingress --version 4.0.17 --values nginx-val.yaml --create-namespace ``` -> this will install nginx ingress controller in GKE
 12.	``` helm install whereami whereami ``` -> this will install whereami chart (our application)
 13.	``` cd cert-manager ```
