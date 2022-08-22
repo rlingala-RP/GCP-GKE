@@ -25,12 +25,12 @@ On your local machine make sure below components are present:
 8.	``` terraform apply -auto-approve ``` -> this will create the infrastructure on GCP
 9.	``` cd ../k8s ```
 10.	``` gcloud container clusters get-credentials dev-kube --zone europe-west2-b --project gcp-gke-dev-360209``` -> this will help you connect to the GKE cluster that is just created
-11.	``` helm install sri-ing ingress-nginx/ingress-nginx --namespace ingress --version 4.0.17 --values nginx-val.yaml --create-namespace ``` -> this will install nginx ingress controller in GKE
+11.	``` helm install sri-ingress ingress-nginx/ingress-nginx --namespace ingress --version 4.0.17 --values nginx-val.yaml --create-namespace ``` -> this will install nginx ingress controller in GKE
 12.	``` helm install whereami whereami ``` -> this will install whereami chart (our application)
 13.	``` cd cert-manager ```
 14. ``` kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.crds.yaml ``` -> CDRs installation for cert-manager
 15.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ``` -> install certmanager
-16.	``` kubectl apply -f cert-issuer-ingress.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
+16.	``` kubectl apply -f cluster-issuer.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
 17.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
 
 ### Testing Infrastructure
