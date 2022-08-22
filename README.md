@@ -35,14 +35,14 @@ On your local machine make sure below components are present:
 16.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ``` -> install certmanager
 17.	``` kubectl apply -f cluster-issuer.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
 18.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
-19. ``` kubectl get ingress ``` -> you will see an ip in this output, make sure that ip is setup as A record for the domain(sri.whereaminow.uk).
+19. ``` kubectl get ingress ``` -> you will see an ip in this output, make sure that ip is setup as an A record for the domain(sri.whereaminow.uk).
 20. After few minutes go to browser and visit https://sri.whereaminow.uk/ -> you should now see the application running.
 
 ### Hosting whereami application on GKE with script (automated)
 
 1. Inside repo
 2. ``` sh k8s/app-setup.sh ``` -> This will setup whereami app on GKE 
-3. From the last line of the above script output see the ip address and setit up as A record for the domain(sri.whereaminow.uk)
+3. From the last line of the above script output see the ip address and setit up as an A record for the domain(sri.whereaminow.uk)
 4. After few minutes go to browser and visit https://sri.whereaminow.uk/ -> you should now see the application running.
 
 ### Testing Infrastructure
