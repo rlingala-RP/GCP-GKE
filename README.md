@@ -11,7 +11,7 @@ On your local machine make sure below components are present:
 6.	Kubectl
 7. Go
 
-### Setup Infrastructure and Install whereami application
+### Setup Infrastructure
 
 1.	Go to GCP and create a project and have that project id key
  
@@ -23,17 +23,27 @@ On your local machine make sure below components are present:
 6.	``` terraform init ``` -> will initalize the gcs backend to update the state of the terraform 
 7.	``` terraform plan ``` -> you can see in the output what resource are going to be created
 8.	``` terraform apply -auto-approve ``` -> this will create the infrastructure on GCP
-9.	``` cd ../k8s ```
-10.	``` gcloud container clusters get-credentials dev-kube --zone europe-west2-b --project gcp-gke-dev-360209``` -> this will help you connect to the GKE cluster that is just created
-11.	``` helm install sri-ingress ingress-nginx/ingress-nginx --namespace ingress --version 4.0.17 --values nginx-val.yaml --create-namespace ``` -> this will install nginx ingress controller in GKE
-12.	``` helm install whereami whereami ``` -> this will install whereami chart (our application)
-13.	``` cd cert-manager ```
-14. ``` kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.crds.yaml ``` -> CDRs installation for cert-manager
-15.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ``` -> install certmanager
-16.	``` kubectl apply -f cluster-issuer.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
-17.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
-18. ``` kubectl get ingress ``` -> you will see an ip in this output, make sure that ip is setup as A record for the domain(sri.whereaminow.uk).
-19. After few minutes go to browser and visit https://sri.whereaminow.uk/ -> you should now see the application running.
+
+### Hosting whereami application on GKE - Manual steps
+1. Inside repo
+10.	``` cd ../k8s ```
+11.	``` gcloud container clusters get-credentials dev-kube --zone europe-west2-b --project gcp-gke-dev-360209``` -> this will help you connect to the GKE cluster that is just created
+12.	``` helm install sri-ingress ingress-nginx/ingress-nginx --namespace ingress --version 4.0.17 --values nginx-val.yaml --create-namespace ``` -> this will install nginx ingress controller in GKE
+13.	``` helm install whereami whereami ``` -> this will install whereami chart (our application)
+14.	``` cd cert-manager ```
+15. ``` kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.9.1/cert-manager.crds.yaml ``` -> CDRs installation for cert-manager
+16.	``` helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.9.1 ``` -> install certmanager
+17.	``` kubectl apply -f cluster-issuer.yaml ``` -> this will create a certificate issuer - here it is Letsencrypt 
+18.	``` kubectl apply -f certificate.yaml ``` -> this will generate the certificate.
+19. ``` kubectl get ingress ``` -> you will see an ip in this output, make sure that ip is setup as A record for the domain(sri.whereaminow.uk).
+20. After few minutes go to browser and visit https://sri.whereaminow.uk/ -> you should now see the application running.
+
+### Hosting whereami application on GKE with script (automated)
+
+1. Inside repo
+2. ``` sh k8s/app-setup.sh ``` -> This will setup whereami app on GKE 
+3. From the last line of the above script output see the ip address and setit up as A record for the domain(sri.whereaminow.uk)
+4. After few minutes go to browser and visit https://sri.whereaminow.uk/ -> you should now see the application running.
 
 ### Testing Infrastructure
 
