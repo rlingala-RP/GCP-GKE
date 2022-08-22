@@ -10,6 +10,11 @@ variable "nat_name" {
     default = "nat"
 }
 
+variable "vpcname" {
+    default = "devkube"
+  
+}
+
 variable "port_numbers" {
     type = list(string)
     default = [22,80,443,8443]  
@@ -38,7 +43,7 @@ variable "private_cluster_config_cidrrange" {
 }
 
 variable "k8s_cluster_name" {
-    default = "dev-kube"
+    default = "devkube"
 }
 
 variable "subnet_cidr_range" {
@@ -64,10 +69,10 @@ variable "node_machine_type" {
     default = "e2-small" 
 }
 variable "google_service_accountid" {
-    default = "dev-kube"
+    default = "devkube"
 }
 variable "conatiner_nodepool_name" {
-    default = "devpool2"
+    default = "devpool"
 }
 variable "containernode_role_name" {
     default = "dev"

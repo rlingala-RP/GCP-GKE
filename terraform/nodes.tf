@@ -1,8 +1,8 @@
-resource "google_service_account" "dev-k8s" {
+resource "google_service_account" "devkube" {
     account_id = var.google_service_accountid  
 }
 
-resource "google_container_node_pool" "devpool1" {
+resource "google_container_node_pool" "devpool" {
     name = var.conatiner_nodepool_name
     cluster = google_container_cluster.dev.id
     node_count = 1
@@ -25,7 +25,7 @@ resource "google_container_node_pool" "devpool1" {
         role = var.containernode_role_name
       }
       
-      service_account = google_service_account.dev-k8s.email
+      service_account = google_service_account.devkube.email
       oauth_scopes = [
         "https://www.googleapis.com/auth/cloud-platform"
       ]
