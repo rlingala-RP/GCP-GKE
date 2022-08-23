@@ -1,5 +1,7 @@
 # GCP-GKE
 
+#### This is simple project that will create GKE cluster via terraform and deploy the application via helm and it can be accessed via secured url(https).
+
 ### Requirements:
 
 On your local machine make sure below components are present:
